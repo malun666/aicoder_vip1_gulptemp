@@ -1,5 +1,14 @@
 .box {
-  font-size: 18px; }
+  font-size: 19px; }
+
 
 .box {
-  color: red; }
+  color: red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid #ccc;
+  background-color: #c87;
+  padding: 10px; }
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImEuY3NzIiwiY3NzL2IuY3NzIiwic2Nzcy9pbmRleC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZ0JBQWUsRUFDaEI7O0FDRkQ7QUNFQTtFQUNFLFdBSFM7RUFJVCxxQkFBYTtFQUFiLHFCQUFhO0VBQWIsY0FBYTtFQUNiLHVCQUFzQjtFQUN0Qix1QkFBc0I7RUFDdEIsY0FBYSxFQUNkIiwiZmlsZSI6Im1haW4uY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmJveCB7XG4gIGZvbnQtc2l6ZTogMTlweDtcbn1cbiIsIiIsIiRjb2xvcjogcmVkO1xuXG4uYm94IHtcbiAgY29sb3I6ICRjb2xvcjtcbiAgZGlzcGxheTogZmxleDtcbiAgYm9yZGVyOiAxcHggc29saWQgI2NjYztcbiAgYmFja2dyb3VuZC1jb2xvcjogI2M4NztcbiAgcGFkZGluZzogMTBweDtcbn1cbiJdfQ== */

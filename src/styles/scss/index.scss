@@ -2,4 +2,8 @@ $color: red;
 
 .box {
   color: $color;
+  display: flex;
+  border: 1px solid #ccc;
+  background-color: #c87;
+  padding: 10px;
 }
