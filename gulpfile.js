@@ -18,6 +18,7 @@ const open = require('gulp-open');
 const connect = require('gulp-connect');
 // 服务器的代理插件
 const modRewrite = require('connect-modrewrite');
+const configRevReplace = require('gulp-requirejs-rev-replace');
 
 // 参数： 第一个参数是任务的名字 第二个参数： 可以省略，依赖的任务名。数组类型，里面是字符串。 第三个参数： 回调函数，接受参数，任务执行完之后可调用
 // 回调函数： 返回值要么是  stream、promise、调用cb
@@ -81,7 +82,12 @@ gulp.task('style', function() {
 
 // 把assets目录中的所有文件拷贝到 dist目录
 gulp.task('copyAssets', function() {
-  return gulp.src(['./src/assets/**/*.*'], {read: true}).pipe(gulp.dest('./dist/assets/'));
+  return gulp.src([
+    './src/assets/**/*.*', './src/lib/**', './src/*.ico'
+  ], {
+    read: true,
+    base: './src'
+  }).pipe(gulp.dest('./dist/'));
 });
 
 // 图片压缩
@@ -118,6 +124,15 @@ gulp.task('js', function() {
     .pipe(gulp.dest('src/js/'));
 });
 
+gulp.task('revjs', function() {
+  return gulp
+    .src(['dist/js/**/*.js'])
+    .pipe(configRevReplace({
+      manifest: gulp.src('src/js/rev-manifest.json')
+    }))
+    .pipe(gulp.dest('dist/js/'));
+});
+
 gulp.task('html', function() {
   // 第一： 把html中的 路径替换成 打上版本后的文件名（css、js） 第二：html进行压缩处理
   return gulp.src(['./src/**/*.json', './src/**/*.html']) // - 读取 rev-manifest.json 文件以及需要进行css名替换的文件
@@ -144,7 +159,7 @@ gulp.task('clean', function() {
 
 // 最终的打包
 gulp.task('dist', function() {
-  runSequence('clean', 'copyAssets', 'style', 'imagemin', 'js', 'html');
+  runSequence('clean', 'copyAssets', 'imagemin', 'style', 'js', 'html', 'revjs');
 });
 
 gulp.task('dev', ['open'], function() {
