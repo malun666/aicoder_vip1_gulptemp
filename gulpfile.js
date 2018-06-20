@@ -6,6 +6,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const cleanCss = require('gulp-clean-css');
 const sourcemap = require('gulp-sourcemaps');
 const rev = require('gulp-rev');
+const imagemin = require('gulp-imagemin');
 
 // 参数： 第一个参数是任务的名字 第二个参数： 可以省略，依赖的任务名。数组类型，里面是字符串。 第三个参数： 回调函数，接受参数，任务执行完之后可调用
 // 回调函数： 返回值要么是  stream、promise、调用cb
@@ -70,9 +71,23 @@ gulp.task('copyAssets', function () {
   return gulp.src(['./src/assets/**/*.*'], {read: true}).pipe(gulp.dest('./dist/assets/'));
 });
 
-// 创建一个gulp的任务。
+//创建一个gulp的任务。
 gulp.task('default', ['html'], function () {
   console.log('----gulp dfualt task');
+});
+
+gulp.task('imagemin', function () {
+  return gulp
+    .src('src/assets/**/*.{jpg,png,gif,jpeg,ico}')
+    .pipe(imagemin({
+      optimizationLevel: 5, // 类型：Number  默认：3  取值范围：0-7（优化等级）
+      progressive: true, // 类型：Boolean 默认：false 无损压缩jpg图片
+      interlaced: true,
+      // 类型：Boolean 默认：false 隔行扫描gif进行渲染
+      multipass: true // 类型：Boolean
+      // 默认：false 多次优化svg直到完全优化
+    }))
+    .pipe(gulp.dest('dist/assets/'));
 });
 
 gulp.task('dev', function () {
