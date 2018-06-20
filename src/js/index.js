@@ -8,3 +8,9 @@ c += d;
 console.log(a);
 console.log(b);
 console.log(c);
+
+window.onload = function() {
+  document
+    .getElementById('tt')
+    .innerHTML = Date.now();
+};
