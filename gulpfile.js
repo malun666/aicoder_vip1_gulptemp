@@ -12,12 +12,15 @@ const eslint = require('gulp-eslint');
 const uglify = require('gulp-uglify');
 const revCollector = require('gulp-rev-collector');
 const htmlmin = require('gulp-htmlmin');
+const runSequence = require('run-sequence');
 
 // 参数： 第一个参数是任务的名字 第二个参数： 可以省略，依赖的任务名。数组类型，里面是字符串。 第三个参数： 回调函数，接受参数，任务执行完之后可调用
 // 回调函数： 返回值要么是  stream、promise、调用cb
+/*
 gulp.task('html', function() {
   console.log('html 压缩！');
 });
+*/
 
 /*
 * 1. scss文件进行编译 css文件
@@ -125,6 +128,10 @@ gulp.task('html', function() {
       minifyCSS: true // 压缩页面CSS
     }))
     .pipe(gulp.dest('./dist/')); // - 替换后的文件输出的目录
+});
+
+gulp.task('dist', function() {
+  runSequence('copyAssets', 'style', 'imagemin', 'js', 'html');
 });
 
 gulp.task('dev', function() {
