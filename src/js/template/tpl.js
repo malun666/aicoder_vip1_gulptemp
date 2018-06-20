@@ -189,6 +189,21 @@ $out+=$escape(total);
 $out+='\n</p>\n';
 return new String($out);
 });/*v:1*/
+template('product/info',function($data,$filename
+/*``*/) {
+'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,title=$data.title,$each=$utils.$each,list=$data.list,val=$data.val,index=$data.index,$out='';$out+='<h3>';
+$out+=$escape(title);
+$out+='</h3>\n';
+$each(list,function(val,index){
+$out+='\n<p>';
+$out+=$escape(val);
+$out+=' - ';
+$out+=$escape(index);
+$out+='</p>\n';
+});
+$out+='\n';
+return new String($out);
+});/*v:1*/
 template('user/add',function($data,$filename
 /*``*/) {
 'use strict';var $utils=this,$helpers=$utils.$helpers,$escape=$utils.$escape,xname=$data.xname,$out='';$out+='<p>\n  ';
