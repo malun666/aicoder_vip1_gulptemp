@@ -216,6 +216,10 @@ arrify@^1.0.0:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/arrify/download/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
 
+art-template@3.0.x:
+  version "3.0.3"
+  resolved "http://registry.npm.taobao.org/art-template/download/art-template-3.0.3.tgz#544b2be25f95d661984db4ee53ac316e57fbae14"
+
 asn1@~0.2.3:
   version "0.2.3"
   resolved "http://registry.npm.taobao.org/asn1/download/asn1-0.2.3.tgz#dac8787713c9966849fc8180777ebe9c1ddf3b86"
@@ -239,6 +243,10 @@ async-each-series@^1.1.0:
 async-foreach@^0.1.3:
   version "0.1.3"
   resolved "http://registry.npm.taobao.org/async-foreach/download/async-foreach-0.1.3.tgz#36121f845c0578172de419a97dbeb1d16ec34542"
+
+async@~0.2.6:
+  version "0.2.10"
+  resolved "http://registry.npm.taobao.org/async/download/async-0.2.10.tgz#b6bbe0b0674b9d719708ca38de8c237cb526c3d1"
 
 asynckit@^0.4.0:
   version "0.4.0"
@@ -798,6 +806,10 @@ bin-wrapper@^3.0.0:
     each-async "^1.1.1"
     lazy-req "^1.0.0"
     os-filter-obj "^1.0.0"
+
+binaryextensions@2:
+  version "2.1.1"
+  resolved "http://registry.npm.taobao.org/binaryextensions/download/binaryextensions-2.1.1.tgz#3209a51ca4a4ad541a3b8d3d6a6d5b83a2485935"
 
 bl@^1.0.0:
   version "1.2.2"
@@ -1613,6 +1625,10 @@ ecc-jsbn@~0.1.1:
   dependencies:
     jsbn "~0.1.0"
 
+editions@^1.3.3:
+  version "1.3.4"
+  resolved "http://registry.npm.taobao.org/editions/download/editions-1.3.4.tgz#3662cb592347c3168eb8e498a0ff73271d67f50b"
+
 ee-first@1.1.1:
   version "1.1.1"
   resolved "http://registry.npm.taobao.org/ee-first/download/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
@@ -1701,7 +1717,7 @@ escape-html@~1.0.3:
   version "1.0.3"
   resolved "http://registry.npm.taobao.org/escape-html/download/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
 
-escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
+escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.3, escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "http://registry.npm.taobao.org/escape-string-regexp/download/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
 
@@ -2699,6 +2715,14 @@ gulp-rename@^1.2.0:
   version "1.3.0"
   resolved "http://registry.npm.taobao.org/gulp-rename/download/gulp-rename-1.3.0.tgz#2e789d8f563ab0c924eeb62967576f37ff4cb826"
 
+gulp-replace@^1.0.0:
+  version "1.0.0"
+  resolved "http://registry.npm.taobao.org/gulp-replace/download/gulp-replace-1.0.0.tgz#b32bd61654d97b8d78430a67b3e8ce067b7c9143"
+  dependencies:
+    istextorbinary "2.2.1"
+    readable-stream "^2.0.1"
+    replacestream "^4.0.0"
+
 gulp-requirejs-rev-replace@^0.1.0:
   version "0.1.0"
   resolved "http://registry.npm.taobao.org/gulp-requirejs-rev-replace/download/gulp-requirejs-rev-replace-0.1.0.tgz#4b997f43ce2645341848f3b5dbc86575b842e6d8"
@@ -2776,6 +2800,15 @@ gulp-sourcemaps@^2.6.4:
     source-map "~0.6.0"
     strip-bom-string "1.X"
     through2 "2.X"
+
+gulp-tmod@^2.0.3:
+  version "2.0.3"
+  resolved "http://registry.npm.taobao.org/gulp-tmod/download/gulp-tmod-2.0.3.tgz#379f99dfa138ed70a5290919c239db63056f05fa"
+  dependencies:
+    gulp-util "^3.0.0"
+    through2 "^2.0.0"
+    tmodjs "git+https://github.com/calledT/tmodjs.git"
+    xtend "^4.0.1"
 
 gulp-uglify@^3.0.0:
   version "3.0.0"
@@ -3449,6 +3482,14 @@ isobject@^3.0.0, isobject@^3.0.1:
 isstream@~0.1.2:
   version "0.1.2"
   resolved "http://registry.npm.taobao.org/isstream/download/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
+
+istextorbinary@2.2.1:
+  version "2.2.1"
+  resolved "http://registry.npm.taobao.org/istextorbinary/download/istextorbinary-2.2.1.tgz#a5231a08ef6dd22b268d0895084cf8d58b5bec53"
+  dependencies:
+    binaryextensions "2"
+    editions "^1.3.3"
+    textextensions "2"
 
 jpegtran-bin@^3.0.0:
   version "3.2.0"
@@ -4267,6 +4308,12 @@ opn@5.2.0:
   dependencies:
     is-wsl "^1.1.0"
 
+optimist@~0.3.5:
+  version "0.3.7"
+  resolved "http://registry.npm.taobao.org/optimist/download/optimist-0.3.7.tgz#c90941ad59e4273328923074d2cf2e7cbc6ec0d9"
+  dependencies:
+    wordwrap "~0.0.2"
+
 optionator@^0.8.2:
   version "0.8.2"
   resolved "http://registry.npm.taobao.org/optionator/download/optionator-0.8.2.tgz#364c5e409d3f4d6301d6c0b4c05bba50180aeb64"
@@ -4814,6 +4861,14 @@ replace-ext@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/replace-ext/download/replace-ext-1.0.0.tgz#de63128373fcbf7c3ccfa4de5a480c45a67958eb"
 
+replacestream@^4.0.0:
+  version "4.0.3"
+  resolved "http://registry.npm.taobao.org/replacestream/download/replacestream-4.0.3.tgz#3ee5798092be364b1cdb1484308492cb3dff2f36"
+  dependencies:
+    escape-string-regexp "^1.0.3"
+    object-assign "^4.0.1"
+    readable-stream "^2.0.2"
+
 "request@>=2.9.0 <2.82.0", request@~2.79.0:
   version "2.79.0"
   resolved "http://registry.npm.taobao.org/request/download/request-2.79.0.tgz#4dfe5bf6be8b8cdc37fcf93e04b65577722710de"
@@ -4987,6 +5042,10 @@ semver-truncate@^1.0.0:
 "semver@2 || 3 || 4 || 5", semver@^5.4.1:
   version "5.5.0"
   resolved "http://registry.npm.taobao.org/semver/download/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
+
+semver@2.3.0:
+  version "2.3.0"
+  resolved "http://registry.npm.taobao.org/semver/download/semver-2.3.0.tgz#d31b2903ebe2a1806c05b8e763916a7183108a15"
 
 semver@^4.0.3, semver@^4.1.0:
   version "4.3.6"
@@ -5177,7 +5236,7 @@ source-map@0.5.x, source-map@^0.5.1, source-map@^0.5.3, source-map@^0.5.6, sourc
   version "0.5.7"
   resolved "http://registry.npm.taobao.org/source-map/download/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
 
-source-map@^0.1.38:
+source-map@^0.1.38, source-map@~0.1.7:
   version "0.1.43"
   resolved "http://registry.npm.taobao.org/source-map/download/source-map-0.1.43.tgz#c24bc146ca517c1471f5dacbe2571b2b7f9e3346"
   dependencies:
@@ -5543,6 +5602,10 @@ text-table@~0.2.0:
   version "0.2.0"
   resolved "http://registry.npm.taobao.org/text-table/download/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
 
+textextensions@2:
+  version "2.2.0"
+  resolved "http://registry.npm.taobao.org/textextensions/download/textextensions-2.2.0.tgz#38ac676151285b658654581987a0ce1a4490d286"
+
 through2-concurrent@^1.1.1:
   version "1.1.1"
   resolved "http://registry.npm.taobao.org/through2-concurrent/download/through2-concurrent-1.1.1.tgz#11cb4ea4c9e31bca6e4c1e6dba48d1c728c3524b"
@@ -5605,6 +5668,14 @@ tiny-lr@^0.2.1:
     livereload-js "^2.2.0"
     parseurl "~1.3.0"
     qs "~5.1.0"
+
+"tmodjs@git+https://github.com/calledT/tmodjs.git":
+  version "1.0.4"
+  resolved "git+https://github.com/calledT/tmodjs.git#40597fd18f9a8fd5e28b5681490316f7ff3f2573"
+  dependencies:
+    art-template "3.0.x"
+    semver "2.3.0"
+    uglify-js "2.4.0"
 
 tmp@^0.0.33:
   version "0.0.33"
@@ -5703,6 +5774,15 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "http://registry.npm.taobao.org/typedarray/download/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
+uglify-js@2.4.0:
+  version "2.4.0"
+  resolved "http://registry.npm.taobao.org/uglify-js/download/uglify-js-2.4.0.tgz#a5f2b6b1b817fb34c16a04234328c89ba1e77137"
+  dependencies:
+    async "~0.2.6"
+    optimist "~0.3.5"
+    source-map "~0.1.7"
+    uglify-to-browserify "~1.0.0"
+
 uglify-js@3.3.x:
   version "3.3.28"
   resolved "http://registry.npm.taobao.org/uglify-js/download/uglify-js-3.3.28.tgz#0efb9a13850e11303361c1051f64d2ec68d9be06"
@@ -5716,6 +5796,10 @@ uglify-js@^3.0.5:
   dependencies:
     commander "~2.15.0"
     source-map "~0.6.1"
+
+uglify-to-browserify@~1.0.0:
+  version "1.0.2"
+  resolved "http://registry.npm.taobao.org/uglify-to-browserify/download/uglify-to-browserify-1.0.2.tgz#6e0924d6bda6b5afe349e39a6d632850a0f882b7"
 
 unc-path-regex@^0.1.2:
   version "0.1.2"
@@ -5970,6 +6054,10 @@ wide-align@^1.1.0:
   resolved "http://registry.npm.taobao.org/wide-align/download/wide-align-1.1.3.tgz#ae074e6bdc0c14a431e804e624549c633b000457"
   dependencies:
     string-width "^1.0.2 || 2"
+
+wordwrap@~0.0.2:
+  version "0.0.3"
+  resolved "http://registry.npm.taobao.org/wordwrap/download/wordwrap-0.0.3.tgz#a3d5da6cd5c0bc0008d37234bbaf1bed63059107"
 
 wordwrap@~1.0.0:
   version "1.0.0"

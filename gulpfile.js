@@ -19,6 +19,8 @@ const connect = require('gulp-connect');
 // 服务器的代理插件
 const modRewrite = require('connect-modrewrite');
 const configRevReplace = require('gulp-requirejs-rev-replace');
+const tmodjs = require('gulp-tmod');
+const replace = require('gulp-replace');
 
 // 参数： 第一个参数是任务的名字 第二个参数： 可以省略，依赖的任务名。数组类型，里面是字符串。 第三个参数： 回调函数，接受参数，任务执行完之后可调用
 // 回调函数： 返回值要么是  stream、promise、调用cb
@@ -157,9 +159,19 @@ gulp.task('clean', function() {
   ], {read: false}).pipe(clean({force: true}));
 });
 
+// 创建一个任务： 把模板生成js文件（相当于把模板进行预编译）
+gulp.task('tpl', function() {
+  return gulp
+    .src('src/template/**/*.html')
+    .pipe(tmodjs({templateBase: 'src/template/', runtime: 'tpl.js', compress: false}))
+    // 参考bug：https://github.com/aui/tmodjs/issues/112
+    .pipe(replace('var String = this.String;', 'var String = window.String;'))
+    .pipe(gulp.dest('src/js/template/'));
+});
+
 // 最终的打包
 gulp.task('dist', function() {
-  runSequence('clean', 'copyAssets', 'imagemin', 'style', 'js', 'html', 'revjs');
+  runSequence('clean', 'tpl', 'copyAssets', 'imagemin', 'style', 'js', 'html', 'revjs');
 });
 
 gulp.task('dev', ['open'], function() {
@@ -170,6 +182,8 @@ gulp.task('dev', ['open'], function() {
     ], ['style:dev'], function() {
       connect.reload(); // 开发的web服务器重启
     });
+
+  gulp.watch('src/template/**/*.html', ['tpl']);
 });
 
 // 创建一个gulp的任务。
