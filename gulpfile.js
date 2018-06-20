@@ -13,6 +13,11 @@ const uglify = require('gulp-uglify');
 const revCollector = require('gulp-rev-collector');
 const htmlmin = require('gulp-htmlmin');
 const runSequence = require('run-sequence');
+const clean = require('gulp-clean');
+const open = require('gulp-open');
+const connect = require('gulp-connect');
+// 服务器的代理插件
+const modRewrite = require('connect-modrewrite');
 
 // 参数： 第一个参数是任务的名字 第二个参数： 可以省略，依赖的任务名。数组类型，里面是字符串。 第三个参数： 回调函数，接受参数，任务执行完之后可调用
 // 回调函数： 返回值要么是  stream、promise、调用cb
@@ -130,18 +135,49 @@ gulp.task('html', function() {
     .pipe(gulp.dest('./dist/')); // - 替换后的文件输出的目录
 });
 
-gulp.task('dist', function() {
-  runSequence('copyAssets', 'style', 'imagemin', 'js', 'html');
+// 打包之前的清理工作
+gulp.task('clean', function() {
+  return gulp.src([
+    'dist/js/**', 'dist/styles/**'
+  ], {read: false}).pipe(clean({force: true}));
 });
 
-gulp.task('dev', function() {
+// 最终的打包
+gulp.task('dist', function() {
+  runSequence('clean', 'copyAssets', 'style', 'imagemin', 'js', 'html');
+});
+
+gulp.task('dev', ['open'], function() {
   // 监控scss或者css变化，并自动调用style样式生成工作流 监控的路径不要写 ./ 不然不能监控到 添加文件的变化。
-  gulp.watch([
-    'src/styles/css/**', 'src/styles/scss/**'
-  ], ['style:dev']);
+  gulp
+    .watch([
+      'src/styles/css/**', 'src/styles/scss/**'
+    ], ['style:dev'], function() {
+      connect.reload(); // 开发的web服务器重启
+    });
 });
 
 // 创建一个gulp的任务。
 gulp.task('default', ['html'], function() {
   console.log('----gulp dfualt task');
+});
+
+// 配置测试服务器
+gulp.task('devServer', function() {
+  connect.server({
+    root: ['./src'], // 网站根目录
+    port: 38900, // 端口
+    livereload: true,
+    middleware: function(connect, opt) {
+      return [modRewrite([// 设置代理  /api/admin/login  http://192.168.0.102:8080/mockjsdata/7/api/admin/login
+        '^/api/(.*)$ http://192.168.0.102:8080/mockjsdata/7/api/$1 [P]'])];
+    }
+  });
+});
+
+// 启动浏览器打开地址
+gulp.task('open', ['devServer'], function() {
+  gulp
+    .src(__filename)
+    .pipe(open({uri: 'http://localhost:38900/index.html'}));
 });
