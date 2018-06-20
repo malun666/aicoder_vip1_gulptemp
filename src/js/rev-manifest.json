@@ -1,3 +1,5 @@
 {
-  "index.js": "index-36005da0e2.js"
+  "controller/indexController.js": "controller/indexController-8d0d2bc535.js",
+  "index.js": "index-36005da0e2.js",
+  "service/api.js": "service/api-b74ab65f50.js"
 }
