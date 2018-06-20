@@ -7,6 +7,7 @@ const cleanCss = require('gulp-clean-css');
 const sourcemap = require('gulp-sourcemaps');
 const rev = require('gulp-rev');
 const imagemin = require('gulp-imagemin');
+const babel = require('gulp-babel');
 
 // 参数： 第一个参数是任务的名字 第二个参数： 可以省略，依赖的任务名。数组类型，里面是字符串。 第三个参数： 回调函数，接受参数，任务执行完之后可调用
 // 回调函数： 返回值要么是  stream、promise、调用cb
@@ -76,6 +77,7 @@ gulp.task('default', ['html'], function () {
   console.log('----gulp dfualt task');
 });
 
+// 图片压缩
 gulp.task('imagemin', function () {
   return gulp
     .src('src/assets/**/*.{jpg,png,gif,jpeg,ico}')
@@ -88,6 +90,19 @@ gulp.task('imagemin', function () {
       // 默认：false 多次优化svg直到完全优化
     }))
     .pipe(gulp.dest('dist/assets/'));
+});
+
+// js处理
+gulp.task('js', function () {
+  // 1. es6进行代码的转换
+  // 2. eslint js代码进行格式化的校验。
+  // 3. js进行压缩
+  // 4. js要进行打版本号（dist）
+  return gulp
+    .src(['src/js/**/*.js'])
+    .pipe(babel()) // babel
+    .pipe(gulp.dest('dist/js/'));
+
 });
 
 gulp.task('dev', function () {
